@@ -42,6 +42,13 @@ Lastly, you should have Fluentd image (fluent/fluentd-kubernetes-daemonset:v1.8.
 
 4. Ensure you have configured a Policy to manage this bucket in OCI.
 
+```
+Allow group [YOUR GROUP] to manage buckets in tenancy
+
+Allow group [YOUR GROUP] to manage objects in tenancy
+
+```
+
 5. Nagivate from the profile icon on the top right hand corner to 'Tenancy: XXX'.
 
 6. Under Object Storage Settings, copy the Object Storage Namespace. You will assign it to a env variable named 'S3_ENDPOINT' later.
@@ -169,7 +176,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: iad.ocir.io/apacaseanset01/epdemo/fluentd-kubernetes-daemonset:v1.8.1-debian-s3-1.0
+        image:  <region_code>.ocir.io/<tenancy_namespace>/fluentd-kubernetes-daemonset:v1.8.1-debian-s3-1.0
         imagePullPolicy: Always
         env:
           - name:  AWS_ACCESS_KEY_ID
@@ -254,7 +261,7 @@ spec:
 
 - From Github web console, click on the file 'build.gradle' and edit it
 - This file is the build configuration script.
-- Add the following 2 lines to 'dependencies' section.
+- Add the following line to 'dependencies' section.
 
 ```
 		implementation 'net.logstash.logback:logstash-logback-encoder:6.3'
