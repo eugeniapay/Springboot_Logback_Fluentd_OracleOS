@@ -320,7 +320,7 @@ public class GreetingController {
 6. Re-build
 - Ensure all existing spring-rest's pods, deployments and services are deleted from OKE.
 - From Github web console, click 'readme.MD' and make any changes and commit it to trigger a build in wercker automatically. 
-- Ensure the image is pushed to OCIR and its pod and Load Balancer are cerated in OKE.
+- Ensure the image is pushed to OCIR and its pod and Load Balancer are created in OKE.
 - From OCI CLI terminal, run 'kubectl get po' to confirm the Pods are running
 - At the same console, run 'kubectl get services' to confirm the service for 'spring_rest_service' is running and identify its public IP. In case the public IP (or external IP as it shows on screen) is shown as 'pending', try again later as sometimes it takes time to secure the public IP. If the status is still pending after 5 minutes, please check if you have any other pods not running smoothly. You may need to delete those pods first and try again as I encounter similar problem with trial OCI Gen 2 accounts
 - If you are using my completed project from https://github.com/eugeniapay/spring-rest-service-logback, please note that all names are added with '-log'. For example, 'spring-rest-log-deployment', 'spring-rest-service-log', etc.
